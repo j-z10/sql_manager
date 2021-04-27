@@ -27,7 +27,7 @@ with Manager(Base, dbfile='test.db') as m:
     print(res.all())
     m.delete(Data, 'uid', 1)    
 
-# use origin method
+# other origin methods
 with Manager(Base, dbfile='test.db') as m:
     query = m.session.query(Data)
     query.filter(Data.name.like('%zo%')).limit(1)
