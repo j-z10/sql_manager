@@ -20,8 +20,8 @@ class Manager(object):
     >>> columns = {'uid': Column(Interger, primary_key=True), 'name': Column(String(10), comment='the username')}
     >>> Base, Data = DynamicModel('TEST', columns, 'test')
     >>> with Manager(Base, dbfile='test.db') as m:
-    >>>   data = Data(uid=1, name='sqd')
-    >>>   m.insert(Data, 'uid', data)
+    >>>     data = Data(uid=1, name='zoro')
+    >>>     m.insert(Data, 'uid', data)
     """
     def __init__(self, Base, dbfile=':memory:', echo=False, drop=False, logger=None):
         self.Base = Base
@@ -43,15 +43,26 @@ class Manager(object):
         self.logger.debug('database closed.')
 
     def connect(self):
+        """create a connection
+        """
         DBSession = sessionmaker(bind=self.engine)
         return DBSession()
 
     def create_table(self, drop=False):
+        """create all table from Base and Model
+        """
         if drop:
             self.Base.metadata.drop_all(self.engine)
         self.Base.metadata.create_all(self.engine)
 
-    def query(self, Meta, key=None, value=None):
+    def query(self, Meta, key=None, value=None, like=False):
+        """query database with key-value
+
+        :param Meta: the meta model
+        :param key: the field name
+        :param value: the field value
+        :returns: a query object of sqlalchemy
+        """
         query = self.session.query(Meta)
         if key:
             if key not in Meta.__dict__:
@@ -63,15 +74,25 @@ class Manager(object):
         return query
 
     def delete(self, Meta, key, value):
+        """delete row(s) by key-value
+
+        :param Meta: the meta model
+        :param key: the field name
+        :param value: the field value
+        """
         res = self.query(Meta, key, value)
         if res.count():
-            self.logger.debug(f'delete one item: {res.first()}')
+            self.logger.debug(f'delete {res.count()} row(s)')
             res.delete()
         else:
             self.logger.debug(f'key input not in database: {key}={value}')
 
     def insert(self, Meta, key, datas, upsert=True):
-        """
+        """insert data
+
+        :param Meta: the meta model
+        :param key: the field name
+        :param data: an instance of Meta, or a list of instance
         :param upsert: add when key not exists, update when key exists
         """
         if isinstance(datas, self.Base):
