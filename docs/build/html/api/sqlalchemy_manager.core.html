@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sqlalchemy_manager.core package &mdash; sqlalchemy_manager v1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sqlalchemy_manager
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">sqlalchemy_manager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sqlalchemy_manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>sqlalchemy_manager.core package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/sqlalchemy_manager.core.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sqlalchemy-manager-core-package">
+<h1>sqlalchemy_manager.core package<a class="headerlink" href="#sqlalchemy-manager-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-sqlalchemy_manager.core.manager">
+<span id="sqlalchemy-manager-core-manager-module"></span><h2>sqlalchemy_manager.core.manager module<a class="headerlink" href="#module-sqlalchemy_manager.core.manager" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sqlalchemy_manager.core.manager.Manager">
+<em class="property">class </em><code class="sig-prename descclassname">sqlalchemy_manager.core.manager.</code><code class="sig-name descname">Manager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Base</span></em>, <em class="sig-param"><span class="n">dbfile</span><span class="o">=</span><span class="default_value">':memory:'</span></em>, <em class="sig-param"><span class="n">echo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Database Manager</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Base</strong> – <code class="docutils literal notranslate"><span class="pre">Base</span></code> object created by <code class="docutils literal notranslate"><span class="pre">DynamicModel</span></code></p></li>
+<li><p><strong>dbfile</strong> – path of database file</p></li>
+<li><p><strong>echo</strong> – turn echo on</p></li>
+<li><p><strong>drop</strong> – drop table before create</p></li>
+<li><p><strong>logger</strong> – a logging object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Examples</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sqlalchemy_manager</span> <span class="kn">import</span> <span class="n">DynamicModel</span><span class="p">,</span> <span class="n">Manager</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uid&#39;</span><span class="p">:</span> <span class="n">Column</span><span class="p">(</span><span class="n">Interger</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;the username&#39;</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Base</span><span class="p">,</span> <span class="n">Data</span> <span class="o">=</span> <span class="n">DynamicModel</span><span class="p">(</span><span class="s1">&#39;TEST&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">Manager</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">dbfile</span><span class="o">=</span><span class="s1">&#39;test.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">m</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>  <span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sqd&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>  <span class="n">m</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span> <span class="s1">&#39;uid&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="sqlalchemy_manager.core.manager.Manager.connect">
+<code class="sig-name descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_manager.core.manager.Manager.create_table">
+<code class="sig-name descname">create_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.create_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_manager.core.manager.Manager.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_manager.core.manager.Manager.insert">
+<code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">datas</span></em>, <em class="sig-param"><span class="n">upsert</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.insert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>upsert</strong> – add when key not exists, update when key exists</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_manager.core.manager.Manager.query">
+<code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.query" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sqlalchemy_manager.core.model">
+<span id="sqlalchemy-manager-core-model-module"></span><h2>sqlalchemy_manager.core.model module<a class="headerlink" href="#module-sqlalchemy_manager.core.model" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="sqlalchemy_manager.core.model.DynamicModel">
+<code class="sig-prename descclassname">sqlalchemy_manager.core.model.</code><code class="sig-name descname">DynamicModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">columns</span></em>, <em class="sig-param"><span class="n">tablename</span><span class="o">=</span><span class="default_value">'data'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/model.html#DynamicModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.model.DynamicModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Base Model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of model</p></li>
+<li><p><strong>columns</strong> – dict of sqlalchemy columns, eg. {‘id’: Column(…)}</p></li>
+<li><p><strong>tablename</strong> – name of table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(Base, Model)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sqlalchemy_manager.core.model.as_dict">
+<code class="sig-prename descclassname">sqlalchemy_manager.core.model.</code><code class="sig-name descname">as_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/model.html#as_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.model.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert columns to <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-sqlalchemy_manager.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sqlalchemy_manager.core" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, suqingdong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
