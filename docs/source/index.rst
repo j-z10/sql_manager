@@ -1,9 +1,9 @@
-.. sqlalchemy_manager documentation master file, created by
+.. sql_manager documentation master file, created by
    sphinx-quickstart on Tue Apr 27 12:01:56 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to sqlalchemy_manager's documentation!
+Welcome to sql_manager's documentation!
 ==============================================
 
 API Reference
@@ -12,9 +12,9 @@ API Reference
    :caption: APIs
    :hidden:
 
-   api/sqlalchemy_manager.core
+   api/sql_manager.core
 
-:doc:`api/sqlalchemy_manager.core`
+:doc:`api/sql_manager.core`
    The APIs of modules
 
 

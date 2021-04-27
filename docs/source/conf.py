@@ -26,7 +26,7 @@ sys.path.insert(0, PKG_DIR)  # 添加docs上层目录到PYTHONPATH中，才可�
 
 # -- Project information -----------------------------------------------------
 
-project = 'sqlalchemy_manager'
+project = 'sql_manager'
 copyright = '2021, suqingdong'
 author = 'suqingdong'
 

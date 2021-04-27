@@ -1,7 +1,7 @@
-sqlalchemy_manager
+sql_manager
 ==================
 
 .. toctree::
    :maxdepth: 4
 
-   sqlalchemy_manager
+   sql_manager

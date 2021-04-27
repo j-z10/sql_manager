@@ -1,6 +1,6 @@
 {
-    "prog": "sqlalchemy_manager",
-    "desc": "A simple manager for sqlalchemy",
+    "prog": "sql_manager",
+    "desc": "A simple database manager with sqlalchemy",
     "author": "suqingdong",
     "author_email": "suqingdong1114@gmail.com",
     "version": "1.0.0"

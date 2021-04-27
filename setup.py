@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-version_info = json.load(open(os.path.join(BASE_DIR, 'sqlalchemy_manager', 'version', 'version.json')))
+version_info = json.load(open(os.path.join(BASE_DIR, 'sql_manager', 'version', 'version.json')))
 
 
 setup(
@@ -16,10 +16,10 @@ setup(
     description=version_info['desc'],
     long_description=codecs.open(os.path.join(BASE_DIR, 'README.md'), encoding='utf-8').read(),
     long_description_content_type="text/markdown",
-    url='https://github.com/suqingdong/sqlalchemy_manager',
+    url='https://github.com/suqingdong/sql_manager',
     project_urls={
-        'Documentation': 'https://sqlalchemy_manager.readthedocs.io',
-        'Tracker': 'https://github.com/suqingdong/sqlalchemy_manager/issues',
+        'Documentation': 'https://sql_manager.readthedocs.io',
+        'Tracker': 'https://github.com/suqingdong/sql_manager/issues',
     },
     license='BSD License',
     install_requires=codecs.open(os.path.join(BASE_DIR, 'requirements.txt'), encoding='utf-8').read().split('\n'),

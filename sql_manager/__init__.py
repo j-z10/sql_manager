@@ -1,8 +1,8 @@
 import os
 import json
 
-from sqlalchemy_manager.core.model import DynamicModel
-from sqlalchemy_manager.core.manager import Manager
+from sql_manager.core.model import DynamicModel
+from sql_manager.core.manager import Manager
 
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))

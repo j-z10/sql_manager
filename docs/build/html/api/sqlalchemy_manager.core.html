@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sqlalchemy_manager.core package &mdash; sqlalchemy_manager v1.0.0 documentation</title>
+  <title>sql_manager.core package &mdash; sql_manager v1.0.0 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sqlalchemy_manager
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sql_manager
           
 
           
@@ -82,7 +82,7 @@
             
               <p class="caption"><span class="caption-text">APIs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">sqlalchemy_manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">sql_manager</a></li>
 </ul>
 
             
@@ -98,7 +98,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">sqlalchemy_manager</a>
+          <a href="../index.html">sql_manager</a>
         
       </nav>
 
@@ -129,13 +129,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>sqlalchemy_manager.core package</li>
+      <li>sql_manager.core package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/api/sqlalchemy_manager.core.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/sql_manager.core.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -149,15 +149,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sqlalchemy-manager-core-package">
-<h1>sqlalchemy_manager.core package<a class="headerlink" href="#sqlalchemy-manager-core-package" title="Permalink to this headline">¶</a></h1>
+<h1>sql_manager.core package<a class="headerlink" href="#sqlalchemy-manager-core-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-sqlalchemy_manager.core.manager">
-<span id="sqlalchemy-manager-core-manager-module"></span><h2>sqlalchemy_manager.core.manager module<a class="headerlink" href="#module-sqlalchemy_manager.core.manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sql_manager.core.manager">
+<span id="sqlalchemy-manager-core-manager-module"></span><h2>sql_manager.core.manager module<a class="headerlink" href="#module-sql_manager.core.manager" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="sqlalchemy_manager.core.manager.Manager">
-<em class="property">class </em><code class="sig-prename descclassname">sqlalchemy_manager.core.manager.</code><code class="sig-name descname">Manager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Base</span></em>, <em class="sig-param"><span class="n">dbfile</span><span class="o">=</span><span class="default_value">':memory:'</span></em>, <em class="sig-param"><span class="n">echo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager">
+<em class="property">class </em><code class="sig-prename descclassname">sql_manager.core.manager.</code><code class="sig-name descname">Manager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Base</span></em>, <em class="sig-param"><span class="n">dbfile</span><span class="o">=</span><span class="default_value">':memory:'</span></em>, <em class="sig-param"><span class="n">echo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The Database Manager</p>
 <dl class="field-list simple">
@@ -174,7 +174,7 @@
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sqlalchemy_manager</span> <span class="kn">import</span> <span class="n">DynamicModel</span><span class="p">,</span> <span class="n">Manager</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sql_manager</span> <span class="kn">import</span> <span class="n">DynamicModel</span><span class="p">,</span> <span class="n">Manager</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uid&#39;</span><span class="p">:</span> <span class="n">Column</span><span class="p">(</span><span class="n">Interger</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;the username&#39;</span><span class="p">)}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Base</span><span class="p">,</span> <span class="n">Data</span> <span class="o">=</span> <span class="n">DynamicModel</span><span class="p">(</span><span class="s1">&#39;TEST&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">Manager</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">dbfile</span><span class="o">=</span><span class="s1">&#39;test.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">m</span><span class="p">:</span>
@@ -183,23 +183,23 @@
 </pre></div>
 </div>
 <dl class="py method">
-<dt id="sqlalchemy_manager.core.manager.Manager.connect">
-<code class="sig-name descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.connect" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager.connect">
+<code class="sig-name descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager.connect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="sqlalchemy_manager.core.manager.Manager.create_table">
-<code class="sig-name descname">create_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.create_table" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager.create_table">
+<code class="sig-name descname">create_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">drop</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager.create_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="sqlalchemy_manager.core.manager.Manager.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.delete" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager.delete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="sqlalchemy_manager.core.manager.Manager.insert">
-<code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">datas</span></em>, <em class="sig-param"><span class="n">upsert</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.insert" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager.insert">
+<code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">datas</span></em>, <em class="sig-param"><span class="n">upsert</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager.insert" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>upsert</strong> – add when key not exists, update when key exists</p>
@@ -208,18 +208,18 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="sqlalchemy_manager.core.manager.Manager.query">
-<code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/manager.html#Manager.query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.manager.Manager.query" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.manager.Manager.query">
+<code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Meta</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/manager.html#Manager.query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.manager.Manager.query" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="module-sqlalchemy_manager.core.model">
-<span id="sqlalchemy-manager-core-model-module"></span><h2>sqlalchemy_manager.core.model module<a class="headerlink" href="#module-sqlalchemy_manager.core.model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sql_manager.core.model">
+<span id="sqlalchemy-manager-core-model-module"></span><h2>sql_manager.core.model module<a class="headerlink" href="#module-sql_manager.core.model" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="sqlalchemy_manager.core.model.DynamicModel">
-<code class="sig-prename descclassname">sqlalchemy_manager.core.model.</code><code class="sig-name descname">DynamicModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">columns</span></em>, <em class="sig-param"><span class="n">tablename</span><span class="o">=</span><span class="default_value">'data'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/model.html#DynamicModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.model.DynamicModel" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.model.DynamicModel">
+<code class="sig-prename descclassname">sql_manager.core.model.</code><code class="sig-name descname">DynamicModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">columns</span></em>, <em class="sig-param"><span class="n">tablename</span><span class="o">=</span><span class="default_value">'data'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/model.html#DynamicModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.model.DynamicModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Base Model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,14 +236,14 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="sqlalchemy_manager.core.model.as_dict">
-<code class="sig-prename descclassname">sqlalchemy_manager.core.model.</code><code class="sig-name descname">as_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sqlalchemy_manager/core/model.html#as_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sqlalchemy_manager.core.model.as_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="sql_manager.core.model.as_dict">
+<code class="sig-prename descclassname">sql_manager.core.model.</code><code class="sig-name descname">as_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sql_manager/core/model.html#as_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sql_manager.core.model.as_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert columns to <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-sqlalchemy_manager.core">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sqlalchemy_manager.core" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sql_manager.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sql_manager.core" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

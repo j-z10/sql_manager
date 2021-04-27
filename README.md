@@ -2,13 +2,13 @@
 
 ### Installation
 ```bash
-python3 -m pip install sqlalchemy_manager
+python3 -m pip install sql_manager
 ```
 
 ### Basic Usage
 ```python
 from sqlalchemy import Column, Integer
-from sqlalchemy_manager import DynamicModel, Manager
+from sql_manager import DynamicModel, Manager
 
 # create model
 columns = {
@@ -34,4 +34,4 @@ with Manager(Base, dbfile='test.db') as m:
 ```
 
 ### Document
-https://sqlalchemy_manager.readthedocs.io/en/latest/
+https://sql_manager.readthedocs.io/en/latest/
