@@ -10,6 +10,7 @@ class Manager(object):
 
     :param Base: ``Base`` object created by ``DynamicModel``
     :param dbfile: path of database file
+    :param uri: uri of database. SQLite3: ``sqlite:///test.db``, MySQL: ``mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}/{DBNAME}``
     :param echo: turn echo on
     :param drop: drop table before create
     :param logger: a logging object
@@ -23,11 +24,10 @@ class Manager(object):
     >>>     data = Data(uid=1, name='zoro')
     >>>     m.insert(Data, 'uid', data)
     """
-    def __init__(self, Base, dbfile=':memory:', echo=False, drop=False, logger=None):
+    def __init__(self, Base, dbfile=':memory:', uri=None, echo=False, drop=False, logger=None):
         self.Base = Base
         self.drop = drop
-        self.dbfile = dbfile
-        self.uri = f'sqlite:///{dbfile}'
+        self.uri = uri if uri else f'sqlite:///{dbfile}'
         self.logger = logger or SimpleLogger('Manager')
         self.engine = sqlalchemy.create_engine(self.uri, echo=echo)
         self.engine.logger.level = self.logger.level

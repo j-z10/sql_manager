@@ -34,4 +34,4 @@ with Manager(Base, dbfile='test.db') as m:
 ```
 
 ### Document
-https://sql_manager.readthedocs.io/en/latest/
+https://sql-manager.readthedocs.io/en/latest/
