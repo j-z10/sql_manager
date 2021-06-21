@@ -14,15 +14,6 @@ class Manager(object):
     :param echo: turn echo on
     :param drop: drop table before create
     :param logger: a logging object
-
-    :examples:
-    >>> from sqlalchemy import Column, Integer
-    >>> from sql_manager import DynamicModel, Manager
-    >>> columns = {'uid': Column(Interger, primary_key=True), 'name': Column(String(10), comment='the username')}
-    >>> Base, Data = DynamicModel('TEST', columns, 'test')
-    >>> with Manager(Base, dbfile='test.db') as m:
-    >>>     data = Data(uid=1, name='zoro')
-    >>>     m.insert(Data, 'uid', data)
     """
     def __init__(self, Base, dbfile=':memory:', uri=None, echo=False, drop=False, logger=None):
         self.Base = Base
