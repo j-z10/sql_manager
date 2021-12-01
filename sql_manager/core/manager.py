@@ -90,8 +90,8 @@ class Manager(object):
             datas = [datas]
 
         for data in datas:
-            res = self.query(Meta, key, data.__dict__[key])
-            if not res.first():
+            res = self.query(Meta, key, data.__dict__.get(key))
+            if not res:
                 self.logger.debug(f'>>> insert data: {data}')
                 self.session.add(data)
             elif upsert:
