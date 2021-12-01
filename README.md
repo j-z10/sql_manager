@@ -53,6 +53,15 @@ with Manager(Data, dbfile='test.db') as m:
 [2021-06-21 16:19:08 Manager __exit__ DEBUG MainThread:34] database closed.
 '''
 
+# insert big data with batch size
+batch_size = 10000
+with Manager(Data, dbfile='test.db') as m:
+    for n, data in enumerate(big_data, 1):
+        m.insert(Data, None, data)
+        if n % batch_size == 0:
+            m.session.commit()
+
+
 # query, delete
 with Manager(Data, dbfile='test.db') as m:
     res = m.query(Data, 'uid', 1)
