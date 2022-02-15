@@ -1,3 +1,4 @@
+from numpy import isin
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.state import InstanceState
@@ -46,55 +47,71 @@ class Manager(object):
             self.Base.metadata.drop_all(self.engine)
         self.Base.metadata.create_all(self.engine)
 
-    def query(self, Meta, key=None, value=None, like=False):
+    def query(self, key=None, value=None, like=False):
         """query database with key-value
 
-        :param Meta: the meta model
         :param key: the field name
         :param value: the field value
         :returns: a query object of sqlalchemy
         """
-        query = self.session.query(Meta)
+        query = self.session.query(self.Base)
         if key:
-            if key not in Meta.__dict__:
+            if key not in self.Base.__dict__:
                 self.logger.warning(f'unavailable key: {key}')
                 return None
             else:
-                query = query.filter(Meta.__dict__[key]==value)
+                query = query.filter(self.Base.__dict__[key]==value)
 
         return query
 
-    def delete(self, Meta, key, value):
+    def delete(self, key, value):
         """delete row(s) by key-value
 
-        :param Meta: the meta model
         :param key: the field name
         :param value: the field value
         """
-        res = self.query(Meta, key, value)
+        res = self.query(key, value)
         if res.count():
             self.logger.debug(f'delete {res.count()} row(s)')
             res.delete()
         else:
             self.logger.debug(f'key input not in database: {key}={value}')
 
-    def insert(self, Meta, key, datas, upsert=True):
-        """insert data
+    def insert(self, datas, key=None, update=True):
+        """insert data row by row
 
-        :param Meta: the meta model
-        :param key: the field name
-        :param data: an instance of Meta, or a list of instance
-        :param upsert: add when key not exists, update when key exists
+        :param datas: an instance of Base, or a list of instance
+        :param key: specify the key field
+        :param update: update row when key is existing
         """
-        if isinstance(datas, self.Base):
+        if not isinstance(datas, list):
             datas = [datas]
 
         for data in datas:
-            res = self.query(Meta, key, data.__dict__.get(key))
-            if (not key) or (not res.first()):
+
+            if not isinstance(data, self.Base):
+                data = self.Base(**data)
+
+            res = self.query(key, data.__dict__.get(key))
+
+            if (not key) or (not res.count()):
                 self.logger.debug(f'>>> insert data: {data}')
                 self.session.add(data)
-            elif upsert:
+            elif update:
                 self.logger.debug(f'>>> update data: {data}')
                 context = {k: v for k, v in data.__dict__.items() if not isinstance(v, InstanceState)}
                 res.update(context)
+            else:
+                self.logger.debug(f'>>> skip add existing data: {data}')
+
+    def insert_bulk(self, datas, Meta=None):
+        """insert data in bulk mode
+
+        :param datas: a list of objects or mappings
+        """
+        if isinstance(datas[0], self.Base):
+            self.session.bulk_save_objects(datas)
+            self.logger.debug(f'>>> inserted {len(datas)} objects ...')
+        else:
+            self.session.bulk_insert_mappings(self.Base, datas)
+            self.logger.debug(f'>>> inserted {len(datas)} mappings ...')

@@ -1,2 +1,1 @@
-include requirements.txt
 include sql_manager/version/version.json

@@ -35,46 +35,56 @@ OnePiece <{'uid': 1, 'name': 'luffy'}>
 
 # insert one data
 with Manager(Data, dbfile='test.db') as m:
-    data = Data(uid=1, name='luffy')
-    m.insert(Data, 'uid', data)
+    m.insert(Data(uid=1, name='luffy'))
+    m.insert(dict(uid=2, name='zoro'))
 '''
-[2021-06-21 16:10:48 Manager insert DEBUG MainThread:95] >>> insert data: OnePiece <{'uid': 2, 'name': 'luffy'}>
-[2021-06-21 16:10:48 Manager __exit__ DEBUG MainThread:34] database closed.
+[2022-02-15 09:29:20 Manager insert DEBUG MainThread:98] >>> insert data: OnePiece <{'uid': 1, 'name': 'luffy'}>
+[2022-02-15 09:29:20 Manager insert DEBUG MainThread:98] >>> insert data: OnePiece <{'uid': 2, 'name': 'zoro'}>
+[2022-02-15 09:29:20 Manager __exit__ DEBUG MainThread:35] database closed.
 '''
 
 # insert multiple datas
 with Manager(Data, dbfile='test.db') as m:
-    datas = [Data(uid=uid, name=name) for uid, name in zip([2, 3, 4], ['sanji', 'chopper', 'nami'])]
-    m.insert(Data, 'uid', datas)
+    datas = [Data(uid=uid, name=name) for uid, name in zip([3, 4, 5], ['sanji', 'chopper', 'nami'])]
+    m.insert(datas, key='uid')
 '''
-[2021-06-21 16:19:08 Manager insert DEBUG MainThread:95] >>> insert data: OnePiece <{'uid': 2, 'name': 'sanji'}>
-[2021-06-21 16:19:08 Manager insert DEBUG MainThread:95] >>> insert data: OnePiece <{'uid': 3, 'name': 'chopper'}>
-[2021-06-21 16:19:08 Manager insert DEBUG MainThread:95] >>> insert data: OnePiece <{'uid': 4, 'name': 'nami'}>
-[2021-06-21 16:19:08 Manager __exit__ DEBUG MainThread:34] database closed.
+[2022-02-15 09:31:14 Manager insert DEBUG MainThread:98] >>> insert data: OnePiece <{'uid': 3, 'name': 'sanji'}>
+[2022-02-15 09:31:14 Manager insert DEBUG MainThread:98] >>> insert data: OnePiece <{'uid': 4, 'name': 'chopper'}>
+[2022-02-15 09:31:14 Manager insert DEBUG MainThread:98] >>> insert data: OnePiece <{'uid': 5, 'name': 'nami'}>
+[2022-02-15 09:31:14 Manager __exit__ DEBUG MainThread:35] database closed.
 '''
 
-# insert big data with batch size
-batch_size = 10000
+# insert bulk objects
 with Manager(Data, dbfile='test.db') as m:
-    for n, data in enumerate(big_data, 1):
-        m.insert(Data, None, data)
-        if n % batch_size == 0:
-            m.session.commit()
-
+    bulk_datas = [Data(uid=uid, name='demo') for uid in range(6, 100000)]
+    m.insert_bulk(bulk_datas)
+'''
+[2022-02-15 09:31:59 Manager insert_bulk DEBUG MainThread:114] >>> inserted 99994 objects ...
+[2022-02-15 09:32:00 Manager __exit__ DEBUG MainThread:35] database closed.
+'''
+    
+# insert bulk mappings
+with Manager(Data, dbfile='test.db') as m:
+    bulk_datas = [dict(uid=uid, name='demo') for uid in range(100001, 200000)]
+    m.insert_bulk(bulk_datas)
+'''
+[2022-02-15 09:32:26 Manager insert_bulk DEBUG MainThread:117] >>> inserted 99999 mappings ...
+[2022-02-15 09:32:26 Manager __exit__ DEBUG MainThread:35] database closed.
+'''
 
 # query, delete
 with Manager(Data, dbfile='test.db') as m:
-    res = m.query(Data, 'uid', 1)
+    res = m.query('uid', 1)
     print(res.all())
-    m.delete(Data, 'uid', 2)    
+    m.delete('uid', 2)    
 '''
-[OnePiece <{'uid': 1, 'name': 'luffy'}>]
-[2021-06-21 16:19:36 Manager delete DEBUG MainThread:76] delete 1 row(s)
-[2021-06-21 16:19:36 Manager __exit__ DEBUG MainThread:34] database closed.
+[OnePiece <{'name': 'luffy', 'uid': 1}>]
+[2022-02-15 09:55:27 Manager delete DEBUG MainThread:75] delete 1 row(s)
+[2022-02-15 09:55:27 Manager __exit__ DEBUG MainThread:35] database closed.
 '''
 
 
-# other origin methods
+# use methods of raw session
 with Manager(Data, dbfile='test.db') as m:
     query = m.session.query(Data)
     res = query.filter(Data.name.like('%op%')).limit(1)
@@ -85,8 +95,8 @@ SELECT user.uid AS user_uid, user.name AS user_name
 FROM user 
 WHERE user.name LIKE ?
  LIMIT ? OFFSET ?
-[OnePiece <{'uid': 3, 'name': 'chopper'}>]
-[2021-06-21 16:24:07 Manager __exit__ DEBUG MainThread:34] database closed.
+[OnePiece <{'name': 'chopper', 'uid': 4}>]
+[2022-02-15 09:56:44 Manager __exit__ DEBUG MainThread:35] database closed.
 ''' 
 ```
 
