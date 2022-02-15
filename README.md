@@ -1,3 +1,6 @@
+![PyPI](https://img.shields.io/pypi/v/sql_manager)
+![GitHub last commit](https://img.shields.io/github/last-commit/suqingdong/sql_manager)
+
 # A simple database manager with sqlalchemy
 
 ### Installation
@@ -43,7 +46,7 @@ with Manager(Data, dbfile='test.db') as m:
 [2022-02-15 09:29:20 Manager __exit__ DEBUG MainThread:35] database closed.
 '''
 
-# insert multiple datas
+# insert multiple datas [slow for big data]
 with Manager(Data, dbfile='test.db') as m:
     datas = [Data(uid=uid, name=name) for uid, name in zip([3, 4, 5], ['sanji', 'chopper', 'nami'])]
     m.insert(datas, key='uid')
