@@ -22,7 +22,6 @@ class Manager(object):
         self.uri = uri if uri else f'sqlite:///{dbfile}'
         self.logger = logger or SimpleLogger('Manager')
         self.engine = sqlalchemy.create_engine(self.uri, echo=echo)
-        self.engine.logger.level = self.logger.level
         self.session = self.connect()
     
     def __enter__(self):
